@@ -6,12 +6,13 @@ const successMessage = document.getElementById("success-message");
 form.addEventListener("submit", function(e) {
   e.preventDefault(); 
 
-  const formData = new FormData(form);
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const message = formData.get("message");
+  const formData = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    message: e.target.message.value,
+};
 
-  saveFormData({ name, email, message });
+  saveFormData(formData);
 
   successMessage.classList.remove("is-hidden");
 
